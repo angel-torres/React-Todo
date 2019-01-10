@@ -5,7 +5,7 @@ function TodoList(props) {
     return (
         <div>
             {props.todoItemList.map( item => {
-                return <div onClick={props.trash}> { item.todo } </div>
+                return <div> { item.todo } </div>
             })}
         </div>
     )

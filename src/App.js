@@ -34,9 +34,15 @@ class App extends React.Component {
     this.setState({inputText: e.target.value});
   }
 
+  // trash = (e) => {
+  //   this.setState({
+  //     trash: [...this.state.trash, {trashItem: e.target}] });
+  //   console.log(this.state.trash)
+  // }
+
   trash = (e) => {
     this.setState({
-      trash: [...this.state.trash, {trashItem: e.target}] });
+      todoItems: [] });
     console.log(this.state.trash)
   }
 
@@ -54,12 +60,13 @@ class App extends React.Component {
       <div>
         <TodoList 
         todoItemList={this.state.todoItems}
-        trash={this.trash} />
+        />
         <TodoForm 
           addNewItem={this.addNewItem}
           inputText={this.state.inputText}
           handleChanges={this.handleChanges}
           removeSelected={this.removeSelected}
+          trash={this.trash}
         />
       </div>
     );
