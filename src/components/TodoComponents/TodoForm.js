@@ -1,13 +1,20 @@
 import React from 'react';
 import './Todo.css';
 
+
+
 function TodoForm(props) {
+
     return (
-        <form>
+        <form onSubmit={props.addNewItem}>
             <input 
                 type="text"
-                placeholder="What should we do today?"
+                value={props.inputText}
+                placeholder="What should we do today?" 
+                onChange={props.handleChanges}
             />
+            <button type="submit">Add</button>
+            {/* <button>Delete Selected</button> */}
         </form>
     )
 };
