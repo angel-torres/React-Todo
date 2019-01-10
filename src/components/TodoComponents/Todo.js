@@ -3,7 +3,11 @@ import "./Todo.css";
 
 const Todo = (props) => {
     return (
-        <div></div>
+        <div>
+            {props.todoItemList.map( item => {
+                return <div> { item.todo } </div>
+            })}
+        </div>
     )
 };
 
