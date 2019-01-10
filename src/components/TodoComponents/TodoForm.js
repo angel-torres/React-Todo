@@ -12,9 +12,10 @@ function TodoForm(props) {
                 value={props.inputText}
                 placeholder="What should we do today?" 
                 onChange={props.handleChanges}
+                name="inputText"
             />
             <button type="submit">Add</button>
-            <button onClick={props.trash}>Remove All</button>
+            <button onClick={props.removeSelected}>Remove Selected</button>
         </form>
     )
 };

@@ -3,12 +3,12 @@ import "./Todo.css";
 
 const Todo = (props) => {
     return (
-        <div>
-            {props.todoItemList.map( item => {
-                return <div> { item.todo } </div>
-            })}
-        </div>
+
+            <div onClick={() => {props.toggleCompleted(props.todo.id)}}
+                className={props.todo.completed ? "completed": null}>
+                { props.todo.todo } 
+             </div>
     )
 };
 
-export default Todo;
+export default Todo; 

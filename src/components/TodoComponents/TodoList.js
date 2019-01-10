@@ -5,7 +5,15 @@ import "./Todo.css";
 function TodoList(props) {
     return (
         <div>
-            <Todo todoItemList={props.todoItemList}/>
+            {props.todoItemList.map( todo => {
+                return (
+                 <Todo 
+                 todoItemList={props.todoItemList} 
+                 toggleCompleted={props.toggleCompleted} 
+                 todo={todo}
+             />
+    )})}
+           
         </div>
     )
 };

@@ -3,10 +3,18 @@ import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList'
 
 const data = [
-  {todo: 'Learn React'},
-  {todo: 'Eat plenty food'},
-  {todo: 'Sleep peacefully'},
-]
+  {
+    todo: 'Organize Garage',
+    id: 1528817077286,
+    completed: false
+  },
+  {
+    todo: 'Bake Cookies',
+    id: 1528817084358,
+    completed: false
+  }
+];
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -18,55 +26,64 @@ class App extends React.Component {
       todoItems: data,
       inputText: '',
       todo: '',
-      trash: []
     }
   }
 
   addNewItem = e => {
     e.preventDefault();
     this.setState({
-      todoItems: [...this.state.todoItems, {todo: this.state.inputText}],
+      todoItems: [...this.state.todoItems, 
+        {todo: this.state.inputText,
+        id: Date.now(),
+        completed: false}],
       inputText: ''
     })
   }
 
   handleChanges = (e) => {
-    this.setState({inputText: e.target.value});
+    this.setState({[e.target.name]: e.target.value});
   }
 
-  // trash = (e) => {
-  //   this.setState({
-  //     trash: [...this.state.trash, {trashItem: e.target}] });
-  //   console.log(this.state.trash)
-  // }
 
-  trash = (e) => {
+  removeSelected = (e) => {
     this.setState({
-      todoItems: [] });
-    console.log(this.state.trash)
+      todoItems: this.state.todoItems.map( todo => {
+        if (todo.completed === false) {
+          return todo;
+        } else {
+          return '';
+        }
+      }) 
+    });
   }
 
-  // removeSelected = (e) => {
-  //   this.setState({
-  //     todoItems: [],
-  //     todoItems: [...this.state.todoItems, todoItems.filter(
-  //        el => {return !this.state.trash.includes( el );} 
-  //     )
-  //   })
-  // }
+  toggleCompleted = selectedItemId => {
+    this.setState({
+      todoItems: this.state.todoItems.map( todo => {
+        if (selectedItemId !== todo.id) {
+          return todo
+        } else {
+          return {
+            ...todo,
+            completed: !todo.completed
+          }
+        }
+      })
+    })
+  }
 
   render() {
     return (
       <div>
         <TodoList 
         todoItemList={this.state.todoItems}
+        toggleCompleted={this.toggleCompleted}
         />
         <TodoForm 
           addNewItem={this.addNewItem}
           inputText={this.state.inputText}
           handleChanges={this.handleChanges}
           removeSelected={this.removeSelected}
-          trash={this.trash}
         />
       </div>
     );
