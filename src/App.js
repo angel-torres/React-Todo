@@ -40,7 +40,15 @@ class App extends React.Component {
     console.log(this.state.trash)
   }
 
-  
+  // removeSelected = (e) => {
+  //   this.setState({
+  //     todoItems: [],
+  //     todoItems: [...this.state.todoItems, todoItems.filter(
+  //        el => {return !this.state.trash.includes( el );} 
+  //     )
+  //   })
+  // }
+
   render() {
     return (
       <div>
@@ -51,6 +59,7 @@ class App extends React.Component {
           addNewItem={this.addNewItem}
           inputText={this.state.inputText}
           handleChanges={this.handleChanges}
+          removeSelected={this.removeSelected}
         />
       </div>
     );
