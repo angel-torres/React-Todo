@@ -1,6 +1,9 @@
 import React from 'react';
+import "./styles.css";
 import TodoForm from './components/TodoComponents/TodoForm';
-import TodoList from './components/TodoComponents/TodoList'
+import TodoList from './components/TodoComponents/TodoList';
+import Header from './components/TodoComponents/HeaderComponent';
+
 
 const data = [
   {
@@ -74,7 +77,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
+        <Header />
         <TodoList 
         todoItemList={this.state.todoItems}
         toggleCompleted={this.toggleCompleted}

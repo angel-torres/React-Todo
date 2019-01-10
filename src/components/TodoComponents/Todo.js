@@ -4,8 +4,10 @@ import "./Todo.css";
 const Todo = (props) => {
     return (
 
-            <div onClick={() => {props.toggleCompleted(props.todo.id)}}
-                className={props.todo.completed ? "completed": null}>
+            <div 
+            onClick={() => {props.toggleCompleted(props.todo.id)}}
+                className={props.todo.completed ? "completed": "list-item"}
+                >
                 { props.todo.todo } 
              </div>
     )
