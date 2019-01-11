@@ -7,6 +7,7 @@
     padding: 5px;
     border: 2px rgb(45, 162, 170) solid;
     background-color: rgb(225, 245, 245);
+    border-radius: 5px;
 }
 
 .completed {
@@ -18,6 +19,7 @@
     padding: 5px;
     border: 2px rgb(153, 56, 56) solid;
     background-color: rgb(250, 239, 239);
+    border-radius: 5px;
 }
 
 .header {
@@ -63,7 +65,7 @@
     background-color: rgb(252, 250, 250);
     text-align: center;
     width: 100%;
-    border: 1px solid gray;
+    border: 1px solid lightgrey;
 }
 
 .form {
