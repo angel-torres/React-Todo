@@ -26,7 +26,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoItems: data,
+      todoItems: [],
       inputText: '',
       todo: '',
     }
