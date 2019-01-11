@@ -6,7 +6,7 @@ import './Todo.css';
 function TodoForm(props) {
 
     return (
-        <form onSubmit={props.addNewItem} className="form">
+        <form className="form">
             <input
                 className="text-box" 
                 type="text"

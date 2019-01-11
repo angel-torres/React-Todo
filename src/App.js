@@ -5,19 +5,6 @@ import TodoList from './components/TodoComponents/TodoList';
 import Header from './components/TodoComponents/HeaderComponent';
 
 
-const data = [
-  {
-    todo: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    todo: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
-  }
-];
-
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -34,13 +21,20 @@ class App extends React.Component {
 
   addNewItem = e => {
     e.preventDefault();
-    this.setState({
-      todoItems: [...this.state.todoItems, 
-        {todo: this.state.inputText,
-        id: Date.now(),
-        completed: false}],
-      inputText: ''
-    })
+    if (this.state.inputText === '') {
+      this.setState({
+        todoItem: [...this.state.todoItems]
+      })
+    } else {
+      this.setState({
+        todoItems: [...this.state.todoItems, 
+          {todo: this.state.inputText,
+          id: Date.now(),
+          completed: false}],
+        inputText: ''
+      })
+    }
+    
   }
 
   handleChanges = (e) => {
