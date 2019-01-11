@@ -49,14 +49,9 @@ class App extends React.Component {
 
 
   removeSelected = (e) => {
+    e.preventDefault();
     this.setState({
-      todoItems: this.state.todoItems.map( todo => {
-        if (todo.completed === false) {
-          return todo;
-        } else {
-          return '';
-        }
-      }) 
+      todoItems: this.state.todoItems.filter( todo => todo.completed === false) 
     });
   }
 

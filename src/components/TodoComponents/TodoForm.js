@@ -16,8 +16,8 @@ function TodoForm(props) {
                 name="inputText"
             />
             <button 
-                type="submit"
-                className="add-button"    
+                className="add-button"  
+                onClick={props.addNewItem}  
             >Add</button>
             <button 
             onClick={props.removeSelected}
